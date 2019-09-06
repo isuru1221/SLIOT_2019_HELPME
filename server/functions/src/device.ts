@@ -1,11 +1,14 @@
 import * as functions from 'firebase-functions';
 import * as express from 'express';
 import * as bodyParser from "body-parser";
-import { firestore } from './config'
+import * as cors from 'cors';
+import { firestore } from './config';
+
 
 const app = express();
+app.use(cors({origin:true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 export const Api = functions.https.onRequest(app);
 
@@ -50,9 +53,6 @@ app.get('/accidents', async (req, res) => {
 
 app.post('/accidents', async (req, res) => {
     try {
-        console.log("req " + req.body);
-        console.log("id " + req.body.id);
-        console.log("data" + req.body.location);
         const data = {
             location:req.body.location,
             id:req.body.id
