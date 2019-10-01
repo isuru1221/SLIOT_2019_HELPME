@@ -10,7 +10,7 @@ void setup()
   GPS.begin(9600);
   Serial.print("Connecting..."); 
   int i =0;
-  for(i=0;i<20;i++){
+  for(i=0;i<10;i++){
     delay(100); 
     Serial.print("."); 
   }
@@ -26,7 +26,7 @@ void loop()
       displayData();
   }
 
-  if ( millis() > 5000 && gps.charsProcessed() < 10){
+  if ( millis() > 5000 && gps.charsProcessed() < 8){
     Serial.println(F("No GPS detected: check wiring."));
     while (true);
   }
