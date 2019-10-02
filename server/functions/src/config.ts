@@ -1,5 +1,4 @@
 import * as admin from 'firebase-admin'
-
 // @ts-ignore
 import * as serviceAccount from '../key/key.json'
 
@@ -16,7 +15,6 @@ const params = {
     clientC509CertUrl: serviceAccount.client_x509_cert_url
 };
 
-
 admin.initializeApp({
     credential: admin.credential.cert(params),
     databaseURL: "https://nodemcu1-26fc3.firebaseio.com/"
@@ -24,3 +22,4 @@ admin.initializeApp({
 
 export const firestore = admin.firestore();
 export const database = admin.database();
+export const geoFire =  admin.firestore;
