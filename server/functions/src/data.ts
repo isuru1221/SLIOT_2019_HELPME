@@ -5,7 +5,7 @@ import * as cors from 'cors';
 import { firestore} from './config';
 
 const app = express();
-app.use(cors({origin:true}));
+app.use(cors());
 app.use(bodyParser.json());
 export const Test = functions.https.onRequest(app);
 

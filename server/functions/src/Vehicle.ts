@@ -6,13 +6,16 @@ import {GeoFirestore,GeoCollectionReference} from 'geofirestore';
 import {firestore,geoFire} from './config';
 
 const app = express();
-app.use(cors({origin:true}));
+app.use(cors());
 app.use(bodyParser.json());
 
 const geoFirestore:GeoFirestore = new GeoFirestore(firestore);
 const geoCollection:GeoCollectionReference = geoFirestore.collection('Ambulance');
 
 app.post('/', async (req,res) => {
+    console.log("req" + req.body.id)
+    console.log("req" + req.body.lat)
+    console.log("req" + req.body.lon)
     geoCollection
         .add( {
         name:req.body.id,
