@@ -6,7 +6,7 @@ import { firestore ,geoFire  } from './config';
 import { GeoCollectionReference, GeoFirestore} from 'geofirestore';
 
 const app = express();
-app.use(cors({origin:true}));
+app.use(cors());
 app.use(bodyParser.json());
 
 const geoFirestore: GeoFirestore = new GeoFirestore(firestore);
