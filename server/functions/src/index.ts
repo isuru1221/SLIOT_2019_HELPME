@@ -16,7 +16,12 @@ export const nearby = functions.firestore
     .document('accidents/{accidentId}')
     .onCreate((snapshot,contex)=>{
         const data = snapshot.data();
-        firestore.collection('Test').add({data:data})
+
+        firestore.collection('suwaSariya').doc("Zmagdgba6ckYBoZmm9gg").update({
+            //@ts-ignore
+            "toLocation":data.d.coordinates,
+            "idle":false
+        })
             .then(()=>{
                 // @ts-ignore
                 console.log(data.d.coordinates)
