@@ -1,8 +1,11 @@
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 
+#define RXPin 4
+#define TXPin 3
+
 TinyGPSPlus gps;
-SoftwareSerial GPS(10, 11);
+SoftwareSerial GPS(RXPin, TXPin);
 
 void setup()
 {
@@ -14,15 +17,12 @@ void setup()
     delay(100); 
     Serial.print("."); 
   }
- Serial.println(" ");
-
-
 }
 
 void loop()
 {
   while (GPS.available() > 0){
-    if (gps.encode(GPS.read()))
+   if (gps.encode(GPS.read()))
       displayData();
   }
 
@@ -42,6 +42,7 @@ void displayData()
     Serial.print(F(","));
     Serial.print(gps.location.lng(), 6);
   }else{
+    Serial.print(gps.location.lng(), 6);
     Serial.print(F("INVALID"));
   }
 
