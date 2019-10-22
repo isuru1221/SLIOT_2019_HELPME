@@ -8,7 +8,7 @@
 #include <RF24.h>
 
 
-//#include <Ticker.h>
+
 //*************************************************************
 
 /* Pin Definitions*/
@@ -17,7 +17,7 @@
 #define STATUS_BLUE 10
 #define TRIG_BTN 2
 
-//Ticker ticker;
+
 
 
 
