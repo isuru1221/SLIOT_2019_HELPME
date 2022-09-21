@@ -14,7 +14,7 @@
     "vue-router": "^3.0.3",
     "vue2-google-maps": "^0.10.7",
     "vuefire": "^2.1.2",
-    "vuetify": "^2.1.2"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",
